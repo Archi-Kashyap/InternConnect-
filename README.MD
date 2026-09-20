@@ -48,7 +48,7 @@ The project fetches job listings using the Adzuna API, stores them locally in SQ
 ```text
 InternConnect/
 │
-├── backend/
+├──   backend/
 │   ├── server.js
 │   ├── package.json
 │   ├── package-lock.json
