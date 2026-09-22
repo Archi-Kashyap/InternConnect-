@@ -32,9 +32,8 @@ The project fetches job listings using the Adzuna API, stores them locally in SQ
 - SQLite
 
 ### Frontend
-- HTML
-- CSS
-- JavaScript
+- react.js
+- tailwindcss 
 
 ### Development Tools
 - Git
