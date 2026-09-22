@@ -1,21 +1,21 @@
 const db = require('./db');
 
-const action = process.argv[2];  // add, list, ya remove
-const value = process.argv[3];   // skill ka naam
+const action = process.argv[2];  // add, list, or remove
+const value = process.argv[3];   // skill name
 
 if (action === 'add') {
   db.prepare('INSERT OR IGNORE INTO skills (name) VALUES (?)').run(value.toLowerCase());
-  console.log(`✔ Skill add ho gayi: ${value}`);
+  console.log(`✔ Skill added: ${value}`);
 }
 
 else if (action === 'remove') {
   db.prepare('DELETE FROM skills WHERE name = ?').run(value.toLowerCase());
-  console.log(`✔ Skill remove ho gayi: ${value}`);
+  console.log(`✔ Skill removed: ${value}`);
 }
 
 else if (action === 'list') {
   const skills = db.prepare('SELECT name FROM skills').all();
-  console.log('Tumhari skills:');
+  console.log('Your skills:');
   skills.forEach(s => console.log(`- ${s.name}`));
 }
 

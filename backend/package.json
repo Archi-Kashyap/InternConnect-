@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "fetch": "node fetchJobs.js",
+    "skills": "node manageskills.js",
+    "match": "node matchJobs.js",
+    "test": "node --test test.js",
+    "test:server": "node run-tests.js"
   },
   "keywords": [],
   "author": "",

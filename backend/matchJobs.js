@@ -6,7 +6,7 @@ const skills = db.prepare('SELECT name FROM skills').all().map(s => s.name);
 // Saari jobs nikal lo
 const jobs = db.prepare('SELECT * FROM jobs').all();
 
-console.log(`Tumhari skills: ${skills.join(', ')}\n`);
+console.log(`Your skills: ${skills.join(', ')}\n`);
 console.log('--- Matching Jobs ---\n');
 
 const results = jobs.map(job => {
@@ -28,4 +28,4 @@ results.forEach(job => {
 });
 
 const noMatch = results.filter(j => j.matchCount === 0).length;
-console.log(`\n${noMatch} jobs mein koi skill match nahi hui.`);
+console.log(`\n${noMatch} jobs had no matching skills.`);
