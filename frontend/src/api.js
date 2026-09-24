@@ -10,7 +10,7 @@ async function api(path, options = {}) {
   const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
-    throw new Error(data.error || `Request fail hui (${res.status})`);
+    throw new Error(data.error || `Request failed (${res.status})`);
   }
   return data;
 }
@@ -18,6 +18,7 @@ async function api(path, options = {}) {
 // ---------- Jobs ----------
 export const getJobs = () => api("/api/jobs");
 export const getMatchedJobs = () => api("/api/jobs?match=1");
+export const getJob = (id) => api(`/api/jobs/${id}`);
 export const fetchNewJobs = (keyword, location) =>
   api("/api/jobs/fetch", {
     method: "POST",
@@ -28,7 +29,8 @@ export const fetchNewJobs = (keyword, location) =>
 export const getSkills = () => api("/api/skills");
 export const addSkill = (name) =>
   api("/api/skills", { method: "POST", body: JSON.stringify({ name }) });
-export const removeSkill = (name) => api(`/api/skills/${encodeURIComponent(name)}`, { method: "DELETE" });
+export const removeSkill = (name) =>
+  api(`/api/skills/${encodeURIComponent(name)}`, { method: "DELETE" });
 
 // ---------- Applications ----------
 export const getApplications = () => api("/api/applications");
